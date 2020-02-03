@@ -62,7 +62,7 @@ echo '{
   "editor.renderLineHighlight": "gutter",
 
   // Aumenta a fonte do terminal
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 12,
 
   // Define o tema dos ícones na sidebar
   "workbench.iconTheme": "material-icon-theme",
