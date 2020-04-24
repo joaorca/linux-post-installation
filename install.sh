@@ -32,7 +32,8 @@ APT_PACKAGES=(
   glances 
   hddtemp
   snapd
-  wine64 
+  calibre
+  locate
   flameshot
   sublime-text
   transmission
@@ -51,6 +52,7 @@ APT_PACKAGES=(
 SNAP_PACKAGES=(
   spotify
   postman
+  libreoffice
 )
 
 SNAP_PACKAGES_REMOVE=(
@@ -126,9 +128,9 @@ do
   snap remove  ${PACKAGE}
 done
 
-echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
-apt install -y flatpak gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
+#apt install -y flatpak gnome-software-plugin-flatpak
+#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo -e "\n${TITLE_COLOR}Corrigindo dependencias${NC}"
 apt --fix-broken install
