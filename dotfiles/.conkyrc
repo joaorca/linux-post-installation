@@ -24,7 +24,7 @@ conky.config = {
 	draw_borders = false,
 	draw_graph_borders = true,
 	use_xft = true,
-	font = 'Ubuntu Mono:size=11',
+	font = 'Ubuntu Mono:size=9',
 	xftalpha = 0.8,
 	uppercase = false,
 	default_color = 'white',
@@ -71,7 +71,7 @@ ${font size=10:bold}NETWORK${font} ${hr 2}
 ${color orange}Local IPs:${alignr}External IP:${color}
 #${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g'}  ${alignr}${execi 1000  wget -q -O- /tmp/wget.log http://ipecho.net/plain -p /tmp/wget.log; echo}
 ${color orange}Down:${color} ${downspeed enp3s0}  ${alignr}${color orange}Up:${color} ${upspeed enp3s0} 
-${color lightgray}${downspeedgraph wlp2s0 30,140 } ${alignr}${upspeedgraph wlp2s0 30,140 }$color
+${color lightgray}${downspeedgraph wlp2s0 30,120 } ${alignr}${upspeedgraph wlp2s0 30,120 }$color
 
 ${font size=10:bold}TOP PROCESSES${font} ${hr 2}
 ${color orange}Name $alignr PID    CPU%    MEM%${color}

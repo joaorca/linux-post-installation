@@ -52,6 +52,7 @@ APT_PACKAGES=(
 SNAP_PACKAGES=(
   spotify
   postman
+  libreoffice
 )
 
 SNAP_PACKAGES_REMOVE=(
