@@ -32,7 +32,8 @@ APT_PACKAGES=(
   glances 
   hddtemp
   snapd
-  wine64 
+  calibre
+  locate
   flameshot
   sublime-text
   transmission
@@ -90,7 +91,7 @@ do
       wget ${PACKAGE[1]} -O /tmp/${PACKAGE[0]}.deb 
     fi
     dpkg -i /tmp/${PACKAGE[0]}.deb
-    apt --fix-broken install
+    apt --fix-broken install -y
   else
     echo -e "${PACKAGE[0]} já instalado"
   fi
@@ -126,12 +127,12 @@ do
   snap remove  ${PACKAGE}
 done
 
-echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
-apt install -y flatpak gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
+#apt install -y flatpak gnome-software-plugin-flatpak
+#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo -e "\n${TITLE_COLOR}Corrigindo dependencias${NC}"
-apt --fix-broken install
+apt --fix-broken install -y
 
 apt dist-upgrade -y
 
