@@ -2,7 +2,7 @@
 
 sudo apt install -y zsh git curl
 
-rm -rf ~/.oh-my-zsh ~/.zshrc ~/.zplug
+rm -rf ~/.oh-my-zsh ~/.zshrc ~/.zinit
 
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
@@ -12,7 +12,7 @@ git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custo
 
 ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 sed -i 's/^ZSH_THEME=.*/ZSH_THEME="spaceship"/g' ~/.zshrc
 
@@ -38,9 +38,9 @@ SPACESHIP_CHAR_SYMBOLSPACESHIP_CHAR_SYMBOL=" "
 SPACESHIP_CHAR_SUFFIX=" " ' >> ~/.zshrc
 
 echo ' ' >> ~/.zshrc
-echo 'zplugin light zsh-users/zsh-autosuggestions' >> ~/.zshrc
-echo 'zplugin light zsh-users/zsh-completions' >> ~/.zshrc
-echo 'zplugin light zdharma/fast-syntax-highlighting' >> ~/.zshrc
+echo 'zinit light zsh-users/zsh-autosuggestions' >> ~/.zshrc
+echo 'zinit light zsh-users/zsh-completions' >> ~/.zshrc
+echo 'zinit light zdharma/fast-syntax-highlighting' >> ~/.zshrc
 
 chsh -s /bin/zsh
 
