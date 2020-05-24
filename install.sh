@@ -7,15 +7,12 @@ NC='\033[0m'
 DEB_PACKAGES=(
  "google-chrome;https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
  "vscode;https://go.microsoft.com/fwlink/?LinkID=760868"
- "insync;https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.23.40579-bionic_amd64.deb"
+ "insync;https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.8.40816-bionic_amd64.deb"
  "stacer;https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb"
- "gitkraken;https://release.gitkraken.com/linux/gitkraken-amd64.deb"
  "franz;https://github.com/meetfranz/franz/releases/download/v5.3.3/franz_5.3.3_amd64.deb"
  )
 
 URL_JETBRAINS="https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz"
-URL_KEY_SUBLIME="https://download.sublimetext.com/sublimehq-pub.gpg"
-URL_PPA_SUBLIME="https://download.sublimetext.com/"
 
 APT_PACKAGES=(
   vim
@@ -35,7 +32,6 @@ APT_PACKAGES=(
   calibre
   locate
   flameshot
-  sublime-text
   transmission
   breeze-cursor-theme 
   ubuntu-restricted-extras 
@@ -43,10 +39,6 @@ APT_PACKAGES=(
   chrome-gnome-shell
   gnome-tweaks 
   gnome-sushi 
-  gnome-calculator 
-  gnome-characters 
-  gnome-logs 
-  gnome-system-monitor
 )
 
 SNAP_PACKAGES=(
@@ -55,21 +47,17 @@ SNAP_PACKAGES=(
   libreoffice
 )
 
-SNAP_PACKAGES_REMOVE=(
-  gnome-calculator 
-  gnome-characters 
-  gnome-logs 
-  gnome-system-monitor
-)
+#SNAP_PACKAGES_REMOVE=(
+#  gnome-calculator 
+#  gnome-characters 
+#  gnome-logs 
+#  gnome-system-monitor
+#)
 
 if [ $(id -u) != 0 ]; then
   echo -e "${ERROR_COLOR}O script deve ser executado como root${NC}"
   exit
 fi
-
-echo -e "\n${TITLE_COLOR}Adicionando Repositório Sublime Text${NC}"
-wget -qO - ${URL_KEY_SUBLIME} | apt-key add -
-echo -e "deb ${URL_PPA_SUBLIME} apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 
 echo -e "\n${TITLE_COLOR}Atualizando pacotes${NC}"
 rm -f /var/lib/dpkg/lock-frontend
@@ -122,11 +110,11 @@ do
   snap install ${PACKAGE}
 done
 
-for PACKAGE in ${SNAP_PACKAGES_REMOVE[@]}
-do
-  echo -e "\n${TITLE_COLOR}Removendo SNAP ${PACKAGE}${NC}"
-  snap remove  ${PACKAGE}
-done
+#for PACKAGE in ${SNAP_PACKAGES_REMOVE[@]}
+#do
+#  echo -e "\n${TITLE_COLOR}Removendo SNAP ${PACKAGE}${NC}"
+#  snap remove  ${PACKAGE}
+#done
 
 #echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
 #apt install -y flatpak gnome-software-plugin-flatpak
