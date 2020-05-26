@@ -36,7 +36,6 @@ APT_PACKAGES=(
   breeze-cursor-theme 
   ubuntu-restricted-extras 
   libavcodec-extra 
-  chrome-gnome-shell
   gnome-tweaks 
   gnome-sushi 
 )
@@ -101,7 +100,7 @@ fi
 for PACKAGE in ${APT_PACKAGES[@]}
 do
   echo -e "\n${TITLE_COLOR}Instalando pacote APT ${PACKAGE}${NC}"
-  apt install -y ${PACKAGE}
+  apt install -y ${PACKAGE} >/dev/null
 done
 
 for PACKAGE in ${SNAP_PACKAGES[@]}

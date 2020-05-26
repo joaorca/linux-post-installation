@@ -16,7 +16,7 @@ fi
 
 echo -e "\n${YELLOW}Cleaning apt ...${ENDCOLOR}"
 apt clean
-apt autoremove --purge
+apt autoremove -y --purge
 apt autoclean
 
 echo -e "\n${YELLOW}Cleaning old revisions of snaps ...${ENDCOLOR}"
@@ -24,6 +24,9 @@ snap list --all | awk '/disabled/{print $1, $3}' |
 while read snapname revision; do
   snap remove "${snapname}" --revision="${revision}"
 done
+
+echo -e "\n${YELLOW}Cleaning snap cache ...${ENDCOLOR}"
+rm /var/lib/snapd/cache/*
 
 echo -e "\n${YELLOW}Those packages were uninstalled without --purge:${ENDCOLOR}"
 for PKGNAME in $OLDCONF ; do  # a better way to handle errors
@@ -36,11 +39,14 @@ echo -e "\n${YELLOW}Removing old kernels...${ENDCOLOR}"
 echo current kernel you are using:
 uname -a
 echo -e "----> ${OLDKERNELS}"
-#apt remove -y $OLDKERNELS --purge
+apt remove -y $OLDKERNELS --purge
 
 echo -e "\n${YELLOW}Emptying every trashes...${ENDCOLOR}"
 rm -rf /home/*/.cache/thumbnails/*/** &> /dev/null
 rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
 rm -rf /root/.local/share/Trash/*/** &> /dev/null
+
+echo -e "\n${YELLOW}Cleaning Journal ...${ENDCOLOR}"
+journalctl --vacuum-time=1s
 
 echo -e "\n${YELLOW}Script Finished!${ENDCOLOR}"
