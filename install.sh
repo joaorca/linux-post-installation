@@ -9,7 +9,7 @@ DEB_PACKAGES=(
  "vscode;https://go.microsoft.com/fwlink/?LinkID=760868"
  "insync;https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.8.40816-bionic_amd64.deb"
  "stacer;https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb"
- "franz;https://github.com/meetfranz/franz/releases/download/v5.3.3/franz_5.3.3_amd64.deb"
+ "franz;https://github.com/meetfranz/franz/releases/download/v5.5.0/franz_5.5.0_amd64.deb"
  )
 
 URL_JETBRAINS="https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz"
