@@ -44,6 +44,8 @@ SNAP_PACKAGES=(
   spotify
   postman
   libreoffice
+  sublime-text
+  youtube-dl
 )
 
 #SNAP_PACKAGES_REMOVE=(
