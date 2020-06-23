@@ -19,8 +19,6 @@ APT_PACKAGES=(
   git
   zsh 
   curl 
-  vlc 
-  remmina 
   conky 
   tmux 
   baobab 
@@ -28,32 +26,14 @@ APT_PACKAGES=(
   sysstat 
   glances 
   hddtemp
-  snapd
-  calibre
   locate
   flameshot
-  transmission
   breeze-cursor-theme 
   ubuntu-restricted-extras 
   libavcodec-extra 
   gnome-tweaks 
   gnome-sushi 
 )
-
-SNAP_PACKAGES=(
-  spotify
-  postman
-  libreoffice
-  sublime-text
-  youtube-dl
-)
-
-#SNAP_PACKAGES_REMOVE=(
-#  gnome-calculator 
-#  gnome-characters 
-#  gnome-logs 
-#  gnome-system-monitor
-#)
 
 if [ $(id -u) != 0 ]; then
   echo -e "${ERROR_COLOR}O script deve ser executado como root${NC}"
@@ -104,22 +84,6 @@ do
   echo -e "\n${TITLE_COLOR}Instalando pacote APT ${PACKAGE}${NC}"
   apt install -y ${PACKAGE} >/dev/null
 done
-
-for PACKAGE in ${SNAP_PACKAGES[@]}
-do
-  echo -e "\n${TITLE_COLOR}Instalando pacote SNAP ${PACKAGE}${NC}"
-  snap install ${PACKAGE}
-done
-
-#for PACKAGE in ${SNAP_PACKAGES_REMOVE[@]}
-#do
-#  echo -e "\n${TITLE_COLOR}Removendo SNAP ${PACKAGE}${NC}"
-#  snap remove  ${PACKAGE}
-#done
-
-#echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
-#apt install -y flatpak gnome-software-plugin-flatpak
-#flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo -e "\n${TITLE_COLOR}Corrigindo dependencias${NC}"
 apt --fix-broken install -y
