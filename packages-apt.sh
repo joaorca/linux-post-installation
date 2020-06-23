@@ -5,8 +5,7 @@ TITLE_COLOR='\033[1;31m'
 NC='\033[0m'
 
 APT_PACKAGES=(
-  vlc 
-  remmina 
+  vlc
   calibre
   transmission
 )

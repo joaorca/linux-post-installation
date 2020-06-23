@@ -6,13 +6,9 @@ NC='\033[0m'
 
 DEB_PACKAGES=(
  "google-chrome;https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
- "vscode;https://go.microsoft.com/fwlink/?LinkID=760868"
  "insync;https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.8.40816-bionic_amd64.deb"
  "stacer;https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb"
- "franz;https://github.com/meetfranz/franz/releases/download/v5.5.0/franz_5.5.0_amd64.deb"
  )
-
-URL_JETBRAINS="https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz"
 
 APT_PACKAGES=(
   vim
@@ -20,6 +16,7 @@ APT_PACKAGES=(
   zsh 
   curl 
   conky 
+  remmina
   tmux 
   baobab 
   htop 
@@ -68,22 +65,16 @@ do
   IFS=" "
 done
 
-echo -e "\n${TITLE_COLOR}Instalando JetBrains-Toolbox${NC}"
-if ! [ -f /opt/jetbrains-toolbox/jetbrains-toolbox ]; then
-  wget ${URL_JETBRAINS} -O /tmp/jetbrains-toolbox.tar.gz && \
-    tar -zxf /tmp/jetbrains-toolbox.tar.gz -C /tmp && \
-    mkdir -p /opt/jetbrains-toolbox && \
-    mv /tmp/jetbrains-toolbox*/jetbrains-toolbox /opt/jetbrains-toolbox/jetbrains-toolbox && \
-    chmod 0777 /opt/jetbrains-toolbox
-else
-  echo -e "${PACKAGE[0]} já instalado"
-fi
-
 for PACKAGE in ${APT_PACKAGES[@]}
 do
   echo -e "\n${TITLE_COLOR}Instalando pacote APT ${PACKAGE}${NC}"
-  apt install -y ${PACKAGE} >/dev/null
+  apt install -y ${PACKAGE}
 done
+
+echo -e "\n${TITLE_COLOR}Instalando pacote YouTube-DL${NC}"
+curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+chmod a+rx /usr/local/bin/youtube-dl
+
 
 echo -e "\n${TITLE_COLOR}Corrigindo dependencias${NC}"
 apt --fix-broken install -y

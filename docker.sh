@@ -27,7 +27,6 @@ add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-
 echo -e "\n${YELLOW}Install the latest version of Docker Engine and containerd${ENDCOLOR}"
 apt update
 apt install -y \
@@ -47,8 +46,6 @@ if [ "$USERNAME" != "" ] ; then
     echo -e "\nHello, ${GREEN}$USERNAME${NC}!\n"
     usermod -aG docker $USERNAME
 fi
-
-
 
 # curl -fsSL https://get.docker.com -o get-docker.sh
 # sudo sh get-docker.sh

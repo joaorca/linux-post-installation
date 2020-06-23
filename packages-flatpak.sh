@@ -10,10 +10,9 @@ FLATPAK_PACKAGES=(
   com.transmissionbt.Transmission
   com.calibre_ebook.calibre
   com.meetfranz.Franz
+  com.sublimetext.three
   org.videolan.VLC
   org.libreoffice.LibreOffice
-  org.remmina.Remmina
-  flathub com.sublimetext.three
   us.zoom.Zoom
 )
 
