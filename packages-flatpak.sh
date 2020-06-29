@@ -13,16 +13,17 @@ FLATPAK_PACKAGES=(
   com.sublimetext.three
   org.videolan.VLC
   org.libreoffice.LibreOffice
+  io.github.wereturtle.ghostwriter
   us.zoom.Zoom
 )
 
-if [ $(id -u) != 0 ]; then
-  echo -e "${ERROR_COLOR}O script deve ser executado como root${NC}"
-  exit
-fi
+echo -e "\n${TITLE_COLOR}Install Flatpak${NC}"
+sudo apt install -y -qq flatpak
 
-echo -e "\n${TITLE_COLOR}Habilitando pacotes Flatpak${NC}"
-apt install -y flatpak gnome-software-plugin-flatpak
+echo -e "\n${TITLE_COLOR}Install the Software Flatpak plugin${NC}"
+sudo apt install -y -qq gnome-software-plugin-flatpak
+
+echo -e "\n${TITLE_COLOR}Add the Flathub repository${NC}"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 for PACKAGE in ${FLATPAK_PACKAGES[@]}

@@ -26,7 +26,7 @@ while read snapname revision; do
 done
 
 echo -e "\n${YELLOW}Cleaning snap cache ...${ENDCOLOR}"
-rm /var/lib/snapd/cache/*
+rm -f /var/lib/snapd/cache/*
 
 echo -e "\n${YELLOW}Those packages were uninstalled without --purge:${ENDCOLOR}"
 for PKGNAME in $OLDCONF ; do  # a better way to handle errors

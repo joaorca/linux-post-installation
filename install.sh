@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+    #!/usr/bin/env bash
 
 ERROR_COLOR='\033[7;31m'
 TITLE_COLOR='\033[1;31m'
@@ -12,9 +12,6 @@ DEB_PACKAGES=(
 
 APT_PACKAGES=(
   vim
-  git
-  zsh 
-  curl 
   conky 
   remmina
   tmux 
@@ -44,9 +41,7 @@ apt update -y
 
 echo -e "\n${TITLE_COLOR}Atualizando sistema${NC}"
 apt upgrade -y
-
-echo -e "\n${TITLE_COLOR}Removendo pacotes não usados${NC}"
-apt autoremove -y
+apt dist-upgrade -y
 
 for DEB_PACKAGE in ${DEB_PACKAGES[@]} 
 do
@@ -55,7 +50,7 @@ do
   echo -e "\n${TITLE_COLOR}Instalando pacote DEB ${PACKAGE[0]}${NC}"
   if ! dpkg -l | grep -q ${PACKAGE[0]}; then
     if ! [ -f /tmp/${PACKAGE[0]}.deb ]; then
-      wget ${PACKAGE[1]} -O /tmp/${PACKAGE[0]}.deb 
+      wget -q ${PACKAGE[1]} -O /tmp/${PACKAGE[0]}.deb --show-progress
     fi
     dpkg -i /tmp/${PACKAGE[0]}.deb
     apt --fix-broken install -y
@@ -75,11 +70,8 @@ echo -e "\n${TITLE_COLOR}Instalando pacote YouTube-DL${NC}"
 curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 chmod a+rx /usr/local/bin/youtube-dl
 
-
 echo -e "\n${TITLE_COLOR}Corrigindo dependencias${NC}"
 apt --fix-broken install -y
-
-apt dist-upgrade -y
 
 echo -e "\n${TITLE_COLOR}Limpeza de pacotes${NC}"
 apt autoclean
