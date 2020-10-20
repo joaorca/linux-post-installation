@@ -12,5 +12,5 @@ mount /dev/sda1 /mnt/home
 cp -aR /home/* /mnt/home
 mv /home /home-old
 #blkid /dev/sda1
-echo "UUID=255f02e8-64a6-455d-8e6f-b7348256ecb8 /home ext4 defaults 0 2" >> /etc/fstab
+echo "UUID=0dd27195-5dd0-48c3-a8c1-4b7f0a0ea8d8 /home ext4 defaults 0 2" >> /etc/fstab
 

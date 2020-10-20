@@ -9,6 +9,8 @@ fi
 
 echo -e "\n${YELLOW}install packages to allow apt to use a repository over HTTPS${ENDCOLOR}"
 
+apt-get update
+
 apt install -y \
 	apt-transport-https \
 	ca-certificates \
@@ -34,7 +36,7 @@ apt install -y \
 	docker-ce-cli \
 	containerd.io
 
-curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 chmod +x /usr/local/bin/docker-compose
 
