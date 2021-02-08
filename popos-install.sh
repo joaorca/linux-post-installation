@@ -5,7 +5,7 @@ TITLE_COLOR='\033[1;31m'
 NC='\033[0m'
 
 DEB_PACKAGES=(
- "insync;https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.8.40816-bionic_amd64.deb"
+ "insync;https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.3.3.40905-focal_amd64.deb"
 )
 
 APT_PACKAGES=(
@@ -27,6 +27,7 @@ APT_PACKAGES=(
   gnome-tweaks 
   gnome-sushi
   google-chrome-stable
+  network-manager-openvpn-gnome
 )
 
 if [ $(id -u) != 0 ]; then
@@ -78,3 +79,6 @@ apt autoclean
 apt autoremove -y
 
 echo -e "\nDone...\n"
+
+#insomnia
+#rambox
