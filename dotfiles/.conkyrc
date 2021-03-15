@@ -17,14 +17,14 @@ conky.config = {
 	border_outer_margin = 0,
 	xinerama_head = 0,
 	alignment = 'top_right',
-	gap_x = 5,
-	gap_y = 40,
+	gap_x = 8,
+	gap_y = 35,
 	draw_shades = true,
 	draw_outline = false,
 	draw_borders = false,
 	draw_graph_borders = true,
 	use_xft = true,
-	font = 'Ubuntu Mono:size=9',
+  font = 'Ubuntu Mono:size=9',
 	xftalpha = 0.8,
 	uppercase = false,
 	default_color = 'white',
@@ -32,7 +32,6 @@ conky.config = {
 	minimum_height = 0,
 	use_spacer = 'left',
 	pad_percents = 3,
-
 };
 
 conky.text = [[
@@ -40,7 +39,9 @@ ${font size=10:bold}SYSTEM${font} ${hr 2}
 ${color orange}Username:${color}$alignr${exec w | cut -d ' ' -f1 | grep -v USER | xargs -n1}
 ${color orange}Hostname:${color}$alignr$nodename
 ${color orange}System:${color}$alignr${exec hostnamectl | grep "Operating System" | cut -d ' ' -f5-}
-${color orange}Kernel:${color}$alignr$kernel ${execi 1000 arch}
+${color orange}DE:${color}$alignr${exec gnome-shell --version}
+${color orange}Kernel:${color}$alignr$kernel
+${color orange}Arch:${color}$alignr${execi 1000 arch}
 ${color orange}Manufacturer:${color}$alignr${execi 1000 cat /sys/class/dmi/id/chassis_vendor}
 ${color orange}Product Name:${color}$alignr${execi 1000 cat /sys/class/dmi/id/product_name}
 ${color orange}Uptime:${color}$alignr$uptime
@@ -69,7 +70,7 @@ ${fs_bar /home}
 
 ${font size=10:bold}NETWORK${font} ${hr 2}
 ${color orange}Local IPs:${alignr}External IP:${color}
-${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g'}  ${alignr}${execi 1000  wget -q -O- /tmp/wget.log http://ipecho.net/plain -p /tmp/wget.log; echo}
+${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g'}${alignr}
 ${color orange}Down:${color} ${downspeed wlp2s0}  ${alignr}${color orange}Up:${color} ${upspeed wlp2s0} 
 ${color lightgray}${downspeedgraph wlp2s0 30,120 } ${alignr}${upspeedgraph wlp2s0 30,120 }$color
 

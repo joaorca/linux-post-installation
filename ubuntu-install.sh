@@ -12,6 +12,7 @@ DEB_PACKAGES=(
 
 APT_PACKAGES=(
   vim
+  zsh
   conky 
   remmina
   tmux 
