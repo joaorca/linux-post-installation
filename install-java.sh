@@ -4,7 +4,7 @@ ERROR_COLOR='\033[7;31m'
 TITLE_COLOR='\033[1;31m'
 NC='\033[0m'
 
-JAVA_LINK="https://sdlc-esd.oracle.com/ESD6/JSCDL/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jre-8u251-linux-x64.tar.gz?GroupName=JSC&FilePath=/ESD6/JSCDL/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jre-8u251-linux-x64.tar.gz&BHost=javadl.sun.com&File=jre-8u251-linux-x64.tar.gz&AuthParam=1591755719_ca4579491e357f90b2eb3c0ccfbdf4ea&ext=.gz"
+JAVA_LINK="https://download.oracle.com/otn-pub/java/jdk/16+36/7863447f0ab643c585b9bdebf67c69db/jdk-16_linux-x64_bin.tar.gz?AuthParam=1616987181_ec5a86e53e14d813b63d10e3e916834f"
 
 if [ $(id -u) != 0 ]; then
   echo -e "${ERROR_COLOR}O script deve ser executado como root${NC}"

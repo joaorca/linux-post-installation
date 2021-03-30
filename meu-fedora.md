@@ -81,6 +81,11 @@ https://d2t3ff60b2tol4.cloudfront.net/builds/insync-3.3.7.40937-fc30.x86_64.rpm
 ## Rambox
 https://github.com/ramboxapp/community-edition/releases/download/0.7.7/Rambox-0.7.7-linux-x86_64.rpm
 
+## Insomnia
+https://github.com/Kong/insomnia/releases/download/core%402021.1.1/Insomnia.Core-2021.1.1.rpm
+
+## GitKraken
+
 ## Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
