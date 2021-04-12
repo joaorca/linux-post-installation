@@ -80,6 +80,3 @@ apt autoclean
 apt autoremove -y
 
 echo -e "\nDone...\n"
-
-#insomnia
-#rambox

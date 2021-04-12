@@ -1,8 +1,6 @@
 # Things to do after installing Fedora Workstation 33
 
-## Basic steps
-
-### Install updates and reboot
+## Install updates and reboot
 ```bash
 sudo dnf upgrade --refresh --assumeyes
 sudo dnf check
@@ -76,13 +74,10 @@ https://extensions.gnome.org/extension/2890/tray-icons-reloaded/
 https://extensions.gnome.org/extension/615/appindicator-support/
 
 ## Insync
-https://d2t3ff60b2tol4.cloudfront.net/builds/insync-3.3.7.40937-fc30.x86_64.rpm
 
 ## Rambox
-https://github.com/ramboxapp/community-edition/releases/download/0.7.7/Rambox-0.7.7-linux-x86_64.rpm
 
 ## Insomnia
-https://github.com/Kong/insomnia/releases/download/core%402021.1.1/Insomnia.Core-2021.1.1.rpm
 
 ## GitKraken
 

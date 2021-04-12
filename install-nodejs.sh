@@ -25,17 +25,17 @@ else
     mkdir -p /opt/nodejs
     tar xf /tmp/node-${NODEJS_VERSION}-${NODEJS_DISTRO}.tar.xz --directory /opt/nodejs
     
-    #npm install --global yarn
-    #npm install --global @angular/cli
-    #npm install --global react-cli react
+    ln -sf /opt/nodejs/node-v*-linux-x64/bin/node  /usr/bin/node
+    ln -sf /opt/nodejs/node-v*-linux-x64/bin/npm   /usr/bin/npm
+    ln -sf /opt/nodejs/node-v*-linux-x64/bin/npx   /usr/bin/npx
 
-    # Create a softlink in /usr/bin/
-    #ln -sf /opt/nodejs/node-v*-linux-x64/bin/node  /usr/bin/node
-    #ln -sf /opt/nodejs/node-v*-linux-x64/bin/npm   /usr/bin/npm
-    #ln -sf /opt/nodejs/node-v*-linux-x64/bin/npx   /usr/bin/npx
-    #ln -sf /opt/nodejs/node-v*-linux-x64/bin/yarn  /usr/bin/yarn
-    #ln -sf /opt/nodejs/node-v*-linux-x64/bin/ng    /usr/bin/ng
-    #ln -sf /opt/nodejs/node-v*-linux-x64/bin/react /usr/bin/react
+    npm install --global yarn
+    npm install --global @angular/cli
+    npm install --global react-cli
+
+    ln -sf /opt/nodejs/node-v*-linux-x64/bin/yarn  /usr/bin/yarn
+    ln -sf /opt/nodejs/node-v*-linux-x64/bin/ng    /usr/bin/ng
+    ln -sf /opt/nodejs/node-v*-linux-x64/bin/react-cli /usr/bin/react
 fi
 
 echo -e "\nDone...\n"
